@@ -3,12 +3,43 @@
 <head>
 <title>Secure ID Forge</title>
 <style>
-body { font-family: Arial, sans-serif; text-align: center; padding: 40px; }
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+padding: 40px;
+}
+#idDisplay {
+font-size: 24px;
+margin-top: 20px;
+font-weight: bold;
+}
+button {
+font-size: 18px;
+padding: 10px 20px;
+margin-top: 10px;
+}
 </style>
 </head>
 <body>
-<h1>🔐 Welcome to Secure ID Forge</h1>
-<p>This site will soon generate cool IDs! Stay tuned. 🎉</p>
-<p><a href="your-project-name.pmp" download>⬇️ Download .pmp File</a></p>
+<h1>🔐 Secure ID Forge</h1>
+<p>Click the button to generate a cool account ID:</p>
+<button onclick="generateID()">Generate ID</button>
+<div id="idDisplay"></div>
+
+<script>
+function generateID() {
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+let part1 = '';
+let part2 = '';
+let part3 = '';
+for (let i = 0; i < 4; i++) {
+part1 += chars.charAt(Math.floor(Math.random() * chars.length));
+part2 += chars.charAt(Math.floor(Math.random() * chars.length));
+part3 += chars.charAt(Math.floor(Math.random() * chars.length));
+}
+const id = part1 + '-' + part2 + '-' + part3;
+document.getElementById('idDisplay').innerText = id;
+}
+</script>
 </body>
 </html>
